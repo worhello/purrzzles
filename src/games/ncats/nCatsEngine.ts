@@ -1,5 +1,4 @@
-import type { Cell, CellActionResult, Game, GameState } from "./nCatsTypes";
-
+import type { Game } from "./nCatsTypes";
 
 
 export function evaluateCellDoubleClick(
@@ -101,7 +100,7 @@ function validateMove(
   const getRegion = (r: number, c: number) =>
     game.cells[r * size + c].color;
 
-  if (!canPlaceCat(size, getRegion, row, col, positions)) {
+  if (!canPlaceCat(getRegion, row, col, positions)) {
     return {
       valid: false,
       reason: 'This move violates a cat placement rule.',
@@ -112,7 +111,6 @@ function validateMove(
 }
 
 export function canPlaceCat(
-  size: number,
   getRegion: (row: number, col: number) => number | string,
   row: number,
   col: number,

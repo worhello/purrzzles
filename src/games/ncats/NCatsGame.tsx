@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import GameGrid from "../../components/GameGrid";
-import type { Cell } from './nCatsTypes';
 import { getLatestLevelCompleted, saveLatestLevelCompleted } from '../../services/storage';
 import { evaluateCellDoubleClick } from './nCatsEngine';
 import { generateNewGame } from './nCatsGenerator';

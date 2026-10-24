@@ -1,5 +1,5 @@
 import { canPlaceCat } from "./nCatsEngine";
-import type { Cell } from "./nCatsTypes";
+import type { Cell, Game } from "./nCatsTypes";
 
 type GeneratedGameCells = {
   size: number,
@@ -10,6 +10,10 @@ type GeneratedGameCells = {
 export function generateNewGame(squareSize: number): Game {
 
   const gameCells = generateGameCells(squareSize);
+
+  if (!gameCells) {
+    throw new Error("Game could not be generated...");
+  }
 
   return {
     cells: mapGameCells(gameCells),
@@ -223,7 +227,7 @@ function countSolutions(
     }
 
     for (let col = 0; col < size; col++) {
-      if (!canPlaceCat(size, getRegion, row, col, positions)) {
+      if (!canPlaceCat(getRegion, row, col, positions)) {
         continue;
       }
 
