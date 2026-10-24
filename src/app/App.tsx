@@ -10,7 +10,7 @@ function App() {
         <div>
           <h1>Get started</h1>
           <p>
-            <Link to="/ncatgames">Play N-Cats Game</Link>
+            <Link to="/ncatsgame">Play N-Cats Game</Link>
           </p>
         </div>
       </section>
