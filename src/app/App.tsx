@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import '../styles/App.css'
 
 function App() {
@@ -8,7 +10,7 @@ function App() {
         <div>
           <h1>Get started</h1>
           <p>
-            <a href='/ncatsgame'>Click here to go to the N-Cats Game</a>
+            <Link to="/ncatgames">Play N-Cats Game</Link>
           </p>
         </div>
       </section>
