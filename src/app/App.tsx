@@ -8,7 +8,7 @@ function App() {
         <div>
           <h1>Get started</h1>
           <p>
-            <a href='/ncatsgame'>Click here to go to the N-Cats Game</a>
+            <a href='ncatsgame'>Click here to go to the N-Cats Game</a>
           </p>
         </div>
       </section>
