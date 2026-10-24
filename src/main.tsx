@@ -13,7 +13,7 @@ createRoot(document.getElementById('root')!).render(
 
       <Routes>
         <Route path="" element={<App />} />
-        <Route path="ncatsgame" element={<NCatsGame />} />
+        <Route path="/ncatsgame" element={<NCatsGame />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
