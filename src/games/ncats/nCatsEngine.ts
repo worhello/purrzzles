@@ -12,8 +12,8 @@ export function evaluateCellDoubleClick(
   const resultCells = [...currentGame.cells];
   const cellToEvaluate = resultCells[index];
 
-  // Ignore clicks on blocked cells.
-  if (cellToEvaluate.value === 'blocked') {
+  // Ignore clicks on cells that have already been marked correctly as cats
+  if (cellToEvaluate.value === 'cat' && cellToEvaluate.userValue === 'cat') {
     return {
       cells: resultCells,
       status: currentGame.status,
