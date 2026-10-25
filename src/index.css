@@ -1,3 +1,4 @@
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -9,7 +10,8 @@
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -24,8 +26,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+  :root {
     font-size: 16px;
   }
 }
@@ -42,7 +46,8 @@
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
     --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
 
   #social .button-icon {
@@ -51,15 +56,15 @@
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  width: 1126px;
+  max-width: 100%;
+  min-height: 100svh;
+  margin: 0 auto;
+  border-inline: 1px solid var(--border);
+  text-align: center;
 }
 
 body {
@@ -74,56 +79,60 @@ h2 {
 }
 
 h1 {
+  margin: 32px 0;
   font-size: 56px;
   letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
 }
+
 h2 {
+  margin: 0 0 8px;
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    margin: 20px 0;
+    font-size: 36px;
+  }
+
+  h2 {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
 
 code,
 .counter {
-  font-family: var(--mono);
   display: inline-flex;
   border-radius: 4px;
   color: var(--text-h);
+  font-family: var(--mono);
 }
 
 code {
-  font-size: 15px;
-  line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+  font-size: 15px;
+  line-height: 135%;
 }
-
 
 .game-container {
   position: relative;
+  margin-inline: auto;
 }
 
 .modal-overlay {
   position: fixed;
   inset: 0;
   z-index: 1000;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 1rem;
   background: rgb(0 0 0 / 55%);
 }
@@ -133,7 +142,7 @@ code {
   padding: 1.5rem;
   border-radius: 12px;
   background: var(--bg);
-  box-shadow: 0 12px 40px rgb(0 0 0 / 25%);
+  box-shadow: var(--shadow);
 }
 
 .modal h2 {
@@ -156,7 +165,7 @@ code {
 }
 
 .modal-actions button:first-child {
-  background: #2563eb;
   border-color: #2563eb;
+  background: #2563eb;
   color: white;
 }
