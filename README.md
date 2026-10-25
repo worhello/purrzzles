@@ -1,3 +1,9 @@
+# Purrzzles
+
+This is a small repo aimed at having a few grid-based games.
+
+Link: https://worhello.github.io/purrzzles/
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
