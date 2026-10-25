@@ -4,7 +4,7 @@ import './GameGrid.css';
 interface GameGridProps {
   rows: number;
   cols: number;
-  onCellClick: (row: number, col: number) => void;
+  onCellClick: (row: number, col: number, dragStartIndex: {row: number, col: number} | null) => void;
   onCellDoubleClick: (row: number, col: number) => void;
   renderCell: (
     row: number,
@@ -23,14 +23,30 @@ export default function GameGrid({
   getCellColor,
 }: GameGridProps) {
 
-  const handledTiles = useRef(new Set<string>());
+  const handledTiles = useRef(new Array<string>());
 
   function handleTileOnce(row: number, col: number) {
     const tileId = `${row}_${col}`;
-    if (handledTiles.current.has(tileId)) return;
+    if (handledTiles.current.find(tId => tId === tileId)) return;
 
-    handledTiles.current.add(tileId);
-    onCellClick(row, col);
+    handledTiles.current.push(tileId);
+    onCellClick(row, col, getFirstDragIndex());
+  }
+
+  function getFirstDragIndex(): {row: number, col: number } | null {
+    if (handledTiles.current.length < 2) {
+      return null;
+    }
+
+    const parsed = handledTiles.current[0]?.split('_').map(strVal => parseInt(strVal));
+    if (!parsed || parsed.length !== 2) {
+      return null;
+    }
+
+    return {
+      row: parsed[0],
+      col: parsed[1]
+    }
   }
 
   const gridStyle = {
@@ -67,7 +83,7 @@ export default function GameGrid({
               handleTileOnce(row, col);
              }}
             onPointerUp={() => {
-              handledTiles.current.clear();
+              handledTiles.current = [];
             }}
            >
              {renderCell(row, col, index)}

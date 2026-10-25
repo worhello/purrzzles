@@ -21,7 +21,7 @@ export function NCatsGame() {
   const [status, setStatus] = useState(initialStatus);
   const [showNewGameButton, setShowNewGameButton] = useState(false);
 
-  function handleCellClick(row: number, col: number) {
+  function handleCellClick(row: number, col: number, dragStartIndex: {row: number, col: number} | null) {
     const index = row * squareSize + col;
 
     setCells(current =>
@@ -33,7 +33,9 @@ export function NCatsGame() {
         const updated = { ...cell };
 
 
-        if (cell.userValue === 'empty') {
+        if (dragStartIndex) {
+          updated.userValue = current[dragStartIndex.row * squareSize + dragStartIndex.col]!.userValue;
+        } else if (cell.userValue === 'empty') {
           updated.userValue = 'blocked';
         } else {
           updated.userValue = 'empty';
