@@ -56,7 +56,6 @@ export default function GameGrid({
              type="button"
              className="game-grid__cell"
              style={color ? { backgroundColor: color } : undefined}
-             onClick={() => onCellClick(row, col)}
              onDoubleClick={() => onCellDoubleClick(row, col)}
              onPointerEnter={(e) => {
               if (e.buttons === 1) {
